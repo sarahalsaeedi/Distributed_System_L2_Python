@@ -1,0 +1,40 @@
+Discuss the solution cost of your LE?
+
+The solution cost of our Election process using Ring Alogrithm, in the worst cases cenario O(n^2) 
+where n is the number of servers or node in the network
+Total number of messages is = O(n^2)
+message complexity :  O(n^2)
+
+-----------------------
+Discuss whether your LE fulfills the properties of a correct LE algo? 
+In Our Case cenario with Ring Leader Election Alog the following done when we start running the topology:
+1. Server1 builds an “Election” message (E), and sends it to its
+next successor node. It inserts its ID which is randomly generated into the Election message
+2. When process Pj receives the message, it appends its
+ID and forwards the message
+i. If the next node has crashed, Pj finds the next
+alive node
+3. When the message gets back to the process that
+started the election:
+i. it elects process with highest ID as coordinator,
+and
+ii. changes the message type to “Coordination”
+message (C) and circulates it in the ring
+
+-----------------------------
+Discuss the cost of adding messages to the board?
+
+In this stage I guess the number of messages will be not increase and the cost of posting message to 
+the board will be through the leader server which will handle wor propegate the message to all the servers in the 
+network.
+
+As well if there is post request done in a slave server it will direct that request to the leader server to handle the 
+request as centeralized solution.
+
+---------------
+Briefly discuss pros&cons of centralized solutions?
+
+pros:
+1- less complex
+2- easy to maintain
+3- Sending least number of messages because it's throught the leader.
